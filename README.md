@@ -1,4 +1,2 @@
-Arabic kj
+Arabic
 ======
-nbm
-kjokj
