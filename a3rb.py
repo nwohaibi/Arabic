@@ -32,11 +32,11 @@ exceptions = (
     'لوران', 'الأمان', 'ثوران', 'الثوران', 'إخوان', 'الإخوان', 'بورون', 'البورون', 'الأذان', 'ميلان', 'الميلان',
     'حيتان',
     'الحيتان', 'الغصون', 'ألوان', 'الألوان', 'توران', 'الكمان', 'لبنان', 'نيسان', 'المكان', 'عبدون', 'اللجان', 'أركان',
-    'الأركان', 'طالبان', 'اللون', 'سليمان', 'عدوان', 'العدوان', 'سودان', 'السودان', 'شارون', 'يعاون', 'الجبان',
+    'الأركان', 'اللون', 'سليمان', 'عدوان', 'العدوان', 'سودان', 'السودان', 'شارون', 'يعاون', 'الجبان',
     'الدهون', 'الشريان', 'النيران', 'نيران',
     'شريان', 'إيلان', 'ميسان', 'فرحان', 'الفرحان', 'العون', 'هامان', 'تبيان', 'شعبان', 'شبعان', 'قولون', 'هيمان',
     'الهيمان', 'الشبعان', 'القولون', 'التبيان', 'ألحان', 'الألحان', 'ألمان', 'سلمون', 'السلمون', 'بركان', 'البركان',
-    'براون', 'بعدان', 'بيجان', 'الجنون', '', '',
+    'براون', 'بعدان', 'بيجان', 'الجنون', 'بوران', 'ميزان',
     'بوسان',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '')
 exceptions2 = ('الاثنين', 'ياسين', '', '', '', '', '', '', '', '')
@@ -46,7 +46,7 @@ yen = []
 an = []
 won = []
 
-with open("di.txt", "r", encoding='utf-8') as myfile:
+with open("da.txt", "r", encoding='utf-8') as myfile:
     string = myfile.read()
     for i in range(len(tarqim)):
         string = string.replace(tarqim[i], ' ')
@@ -82,7 +82,7 @@ def a3rb(words, f3l, won, yen, an):
             if words[i - 1] in particles:  # لجر الاسماء المجرورة بحروف الجر المنفصلة
                 print('قبل:', words[i - 1], words[i])  # for testing
                 if words[i][-2:] == 'ان':
-                    words[i] = words[i][0:-2] + 'يَن'
+                    words[i] = words[i][0:-2] + 'َين'
                 else:
                     words[i] = words[i][0:-2] + 'ين'
                 print('بعد:', words[i - 1], words[i], '(حرف جر منفصل)')  # for testing
@@ -92,7 +92,7 @@ def a3rb(words, f3l, won, yen, an):
                             words[i][1:] in yen or words[i][1:] in an):  # لجر الاسماء المجرورة بحروف الجر المتصلة
                 print('قبل:', words[i - 1], words[i])  # for testing
                 if words[i][-2:] == 'ان':
-                    words[i] = words[i][0:-2] + 'يَن'
+                    words[i] = words[i][0:-2] + 'َين'
                 else:
                     words[i] = words[i][0:-2] + 'ين'
                 print('بعد:', words[i - 1], words[i], '(حرف جر متصل)')  # for testing
@@ -102,7 +102,7 @@ def a3rb(words, f3l, won, yen, an):
                                                                             0:2] != 'وال':  # نصب خبر كان وأخواتها
                 print('قبل:', words[i - 2], words[i - 1], words[i])  # for testing
                 if words[i][-2:] == 'ان':
-                    words[i] = words[i][0:-2] + 'يَن'
+                    words[i] = words[i][0:-2] + 'َين'
                 else:
                     words[i] = words[i][0:-2] + 'ين'
                 print('بعد:', words[i - 2], words[i - 1], words[i], '(نصب كان)')  # for testing
@@ -111,7 +111,7 @@ def a3rb(words, f3l, won, yen, an):
             elif words[i - 1] in enna_sisters:  # نصب اسم إن وأخواتها
                 print('قبل:', words[i - 1], words[i], words[i + 1])  # for testing
                 if words[i][-2:] == 'ان':
-                    words[i] = words[i][0:-2] + 'يَن'
+                    words[i] = words[i][0:-2] + 'َين'
                 else:
                     words[i] = words[i][0:-2] + 'ين'
                 print('بعد:', words[i - 1], words[i], words[i + 1], '(نصب إن)')  # for testing
@@ -120,7 +120,7 @@ def a3rb(words, f3l, won, yen, an):
             elif words[i - 1] in zarf:  # experimental - بعد ظرف المكان أو الزمان
                 print('قبل:', words[i - 1], words[i])  # for testing
                 if words[i][-2:] == 'ان':
-                    words[i] = words[i][0:-2] + 'يَن'
+                    words[i] = words[i][0:-2] + 'َين'
                 else:
                     words[i] = words[i][0:-2] + 'ين'
                 print('بعد:', words[i - 1], words[i], '(ظرف)')  # for testing
@@ -131,7 +131,7 @@ def a3rb(words, f3l, won, yen, an):
                                                                                                               0:-1] in f3l:
                 print('قبل:', words[i - 1], words[i])  # for testing
                 if words[i][-2:] == 'ان':
-                    words[i] = words[i][0:-2] + 'يَن'
+                    words[i] = words[i][0:-2] + 'َين'
                 else:
                     words[i] = words[i][0:-2] + 'ين'
                 print('بعد:', words[i - 1], words[i], '(مفعول)')  # for testing
